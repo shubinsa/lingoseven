@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoSeven — Learn a language in 30 minutes a day</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+    <!-- Google Translate -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <img src="logo.svg" alt="Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="header-store-buttons">
+                <a href="https://apps.apple.com/app/id6471030440" class="store-btn store-btn-apple" aria-label="App Store">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="store-btn store-btn-google" aria-label="Google Play">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-2.11 1.24-2.5-2.5 2.5-2.5 2.11 1.38M6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="language-selector desktop-only">
+                <div id="google_translate_element"></div>
+                <button class="btn-apply-lang" id="applyLang">Apply</button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero hero-split">
+        <div class="container">
+            <div class="hero-split-content">
+                <div class="hero-text">
+                    <div class="hero-pill">
+                        <span class="hero-pill-dot"></span>
+                        LingoSeven • Learn a language the fun way
+                    </div>
+                    <h1 class="hero-title-modern notranslate" id="heroTitle" translate="no">
+                        <span class="hero-number">30</span> minutes a day is all you need to learn a language.
+                    </h1>
+                    <div class="hero-cta">
+                        <a href="https://apps.apple.com/app/id6471030440" class="btn btn-primary btn-large">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            <div class="btn-text">
+                                <span class="btn-small">Download on</span>
+                                <span class="btn-big">App Store</span>
+                            </div>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="btn btn-outline btn-large">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-2.11 1.24-2.5-2.5 2.5-2.5 2.11 1.38M6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/>
+                            </svg>
+                            <div class="btn-text">
+                                <span class="btn-small">Get it on</span>
+                                <span class="btn-big">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="pic.png" alt="App mascot" class="hero-mascot-split">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features - Slider -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Everything you need in one app</h2>
+                <p>Effective language-learning tools in a simple, intuitive interface</p>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide"><img src="1.png" alt="Feature 1"></div>
+                <div class="slide"><img src="2.png" alt="Feature 2"></div>
+                <div class="slide"><img src="3.png" alt="Feature 3"></div>
+                <div class="slide"><img src="4.png" alt="Feature 4"></div>
+                <div class="slide"><img src="5.png" alt="Feature 5"></div>
+                <div class="slide"><img src="6.png" alt="Feature 6"></div>
+                <div class="slide"><img src="7.png" alt="Feature 7"></div>
+            </div>
+            <button class="slider-btn slider-btn-prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="slider-btn slider-btn-next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How it works</span>
+                <h2>Read. Listen. Repeat.</h2>
+                <p>Build an effective routine by developing multiple skills in parallel</p>
+            </div>
+            <div class="steps-detailed">
+                <div class="step-detailed">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Read — without a dictionary</h3>
+                        <p class="step-description"><strong>Parallel reading</strong> in speed-reading mode lets you breeze through even challenging texts.</p>
+                        <div class="step-results">
+                            <span class="result-label">Result:</span>
+                            <ul>
+                                <li>your <strong>reading</strong> skills improve</li>
+                                <li><strong>grammar</strong> is absorbed naturally — in context</li>
+                                <li>your <strong>vocabulary</strong> grows: words, phrases, expressions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-detailed">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Listen and read at the same time</h3>
+                        <p class="step-description">Turn on the audio and follow along with your eyes — it's one of the fastest ways to level up your <strong>listening</strong> and pronunciation "by ear".</p>
+                        <div class="step-results">
+                            <span class="result-label">Result:</span>
+                            <ul>
+                                <li>confident comprehension of speech at natural pace</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-detailed">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Lock in words with spaced repetition</h3>
+                        <p class="step-description">Save words you like from reading and audio, or load <strong>ready-made collections of the most common and important words</strong> to build your vocabulary as efficiently as possible.</p>
+                        <div class="step-results">
+                            <span class="result-label">Result:</span>
+                            <ul>
+                                <li>the spaced repetition system helps you remember words forever</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bonus-blocks">
+                <div class="bonus-block">
+                    <div class="bonus-icon">🌱</div>
+                    <div class="bonus-content">
+                        <h4>Any level</h4>
+                        <p>Materials are suitable <strong>for any level</strong> — from beginner to advanced.</p>
+                    </div>
+                </div>
+                <div class="bonus-block">
+                    <div class="bonus-icon">🍒</div>
+                    <div class="bonus-content">
+                        <h4>Engaging content</h4>
+                        <p>Learn a language and <strong>grow as a person at the same time</strong>.</p>
+                    </div>
+                </div>
+                <div class="bonus-block bonus-soon">
+                    <div class="bonus-icon">🚀</div>
+                    <div class="bonus-content">
+                        <h4>Coming soon</h4>
+                        <p>You'll be able to <strong>talk and chat with your book</strong>: practice speaking and writing right along with the story.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-block">
+                <div class="summary-pill">
+                    <span class="summary-pill-dot"></span>
+                    Summary
+                </div>
+                <p>LingoSeven combines essential language skills into one process — so your progress is fast and tangible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Any language from any language -->
+    <section class="any-language">
+        <div class="container">
+            <div class="any-language-content">
+                <span class="section-tag">90+ languages</span>
+                <h2>Learn any language in your language</h2>
+                <p>Largest coverage: 90+ languages and 8,000+ language pairs</p>
+            </div>
+            <div class="flags-showcase">
+                <div class="flags-carousel flags-carousel-left">
+                    <div class="flags-track flags-track-up">
+                        <span class="fi fi-gb"></span>
+                        <span class="fi fi-de"></span>
+                        <span class="fi fi-fr"></span>
+                        <span class="fi fi-es"></span>
+                        <span class="fi fi-it"></span>
+                        <span class="fi fi-pt"></span>
+                        <span class="fi fi-ru"></span>
+                        <span class="fi fi-jp"></span>
+                        <span class="fi fi-cn"></span>
+                        <span class="fi fi-kr"></span>
+                        <span class="fi fi-nl"></span>
+                        <span class="fi fi-se"></span>
+                        <!-- Duplicates for seamless animation -->
+                        <span class="fi fi-gb"></span>
+                        <span class="fi fi-de"></span>
+                        <span class="fi fi-fr"></span>
+                        <span class="fi fi-es"></span>
+                        <span class="fi fi-it"></span>
+                        <span class="fi fi-pt"></span>
+                        <span class="fi fi-ru"></span>
+                        <span class="fi fi-jp"></span>
+                        <span class="fi fi-cn"></span>
+                        <span class="fi fi-kr"></span>
+                        <span class="fi fi-nl"></span>
+                        <span class="fi fi-se"></span>
+                    </div>
+                </div>
+                <div class="flags-center">
+                    <div class="flags-pair" id="flagsPair">
+                        <span class="fi fi-cn flag-main" id="flagLeft"></span>
+                        <span class="flag-separator">+</span>
+                        <span class="fi fi-cz flag-main" id="flagRight"></span>
+                    </div>
+                </div>
+                <div class="flags-carousel flags-carousel-right">
+                    <div class="flags-track flags-track-down">
+                        <span class="fi fi-pl"></span>
+                        <span class="fi fi-cz"></span>
+                        <span class="fi fi-tr"></span>
+                        <span class="fi fi-gr"></span>
+                        <span class="fi fi-ua"></span>
+                        <span class="fi fi-no"></span>
+                        <span class="fi fi-dk"></span>
+                        <span class="fi fi-fi"></span>
+                        <span class="fi fi-ro"></span>
+                        <span class="fi fi-hu"></span>
+                        <span class="fi fi-il"></span>
+                        <span class="fi fi-sa"></span>
+                        <!-- Duplicates for seamless animation -->
+                        <span class="fi fi-pl"></span>
+                        <span class="fi fi-cz"></span>
+                        <span class="fi fi-tr"></span>
+                        <span class="fi fi-gr"></span>
+                        <span class="fi fi-ua"></span>
+                        <span class="fi fi-no"></span>
+                        <span class="fi fi-dk"></span>
+                        <span class="fi fi-fi"></span>
+                        <span class="fi fi-ro"></span>
+                        <span class="fi fi-hu"></span>
+                        <span class="fi fi-il"></span>
+                        <span class="fi fi-sa"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Reviews</span>
+                <h2>What users say</h2>
+                <p>Real stories from language learners around the world</p>
+            </div>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"That feeling when you're not 'studying' but just reading and suddenly understanding — priceless. Really well done."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-it"></span>
+                        <div class="author-info">
+                            <span class="author-name">Luca Conti</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Parallel reading is literally the most convenient way to learn a language without the pain."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Emily Carter</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Learning here feels natural: context is key. When you see the full phrase, it sticks easier and without forcing yourself."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Hugo Bernard</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Finally, learning that doesn't frustrate you: just read and absorb."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Carlos Hernández</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"For me it's not about 'learning words' but keeping my language sharp. It's convenient to read regularly and stay in context — great tool for maintaining your level."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Alice Green</span>
+                            <span class="author-level">advanced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"A very comfortable way to build vocabulary. I started translating less word-by-word in my head and understanding more by meaning."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-it"></span>
+                        <div class="author-info">
+                            <span class="author-name">Giulia Bianchi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I'm starting from zero, and it's important not to drown in rules. Here I just read in small chunks and don't panic — having the translation nearby really helps."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Emma Thompson</span>
+                            <span class="author-level">beginner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Nice that the app isn't overloaded with extras. You just read and gradually start recognizing words and patterns. A calm, productive process."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Chloé Martin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I love that you don't have to depend on motivation. Even when tired, just reading a couple of paragraphs is already practice."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-de"></span>
+                        <div class="author-info">
+                            <span class="author-name">Jonas Weber</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Why didn't I find this earlier? I finally have a normal rhythm: open — 15 minutes — close, and I actually learned."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Diego Castillo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Open — read — understand. Everything I needed."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">James Miller</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"For intermediate level this is great: you reinforce grammar and vocabulary with real examples. You start catching fixed expressions faster."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-de"></span>
+                        <div class="author-info">
+                            <span class="author-name">Leon Müller</span>
+                            <span class="author-level">intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I'm thrilled with the feeling of 'I'm really reading'. Not exercises for exercises' sake, but living language, and my brain starts putting the puzzle together on its own."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Valeria Navarro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Reading in a foreign language used to be a punishment, now it's actually enjoyable. Parallel text saves you from getting stuck."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Thomas Moreau</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I liked that the focus is on understanding the text. Having the translation nearby helps you not lose the flow and learn in context. It's really more convenient than cramming."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Olivia Bennett</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Text + translation side by side = the perfect format for real practice."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Camille Dubois</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I like that you can study in small sessions. Even 20-30 minutes feels productive because it's real texts and real language."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Martina Ruiz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I thought I'd quit again after two days... but this actually hooks you. You read and go: 'Oh, I got it!' — and want just one more bit."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Sarah Johnson</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"At an advanced level, volume and quality of contact with the language is what matters. Here it happens naturally: you read a lot without friction."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-it"></span>
+                        <div class="author-info">
+                            <span class="author-name">Francesca Romano</span>
+                            <span class="author-level">advanced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Well made: open a text, read, quickly check and continue. That's why you don't get tired and don't quit after three days."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Daniel White</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Very easy to get into — a little bit every day, stress-free."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Lucía Gómez</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Minimum fluff, maximum value — I love apps like this."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Antoine Lefèvre</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I actually stopped jumping between dictionaries and losing the meaning. Reading became whole, and progress is more noticeable because of it."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-de"></span>
+                        <div class="author-info">
+                            <span class="author-name">Mia Fischer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Really love the 'read and learn' format. No prep, no searching for materials — just open and practice. Perfect for busy people."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Javier Morales</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"My favorite moment is when you suddenly catch yourself reading faster and stumbling less on every word. It's very motivating!"</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Élodie Laurent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"With this format I stopped getting stuck in the dictionary every minute."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-de"></span>
+                        <div class="author-info">
+                            <span class="author-name">Lena Schneider</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I find it hard to start because everything seems confusing. But here I see the meaning right away — and gain confidence to continue."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-es"></span>
+                        <div class="author-info">
+                            <span class="author-name">Sofía Martínez</span>
+                            <span class="author-level">beginner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I read with pleasure — and it suddenly became my 'lesson'."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-it"></span>
+                        <div class="author-info">
+                            <span class="author-name">Marco Rossi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"This is the first app where I don't feel stupid. No panic from unfamiliar words — the translation is right there, and you keep going."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-gb"></span>
+                        <div class="author-info">
+                            <span class="author-name">Matthew Clark</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I already know the basics, but I was missing regular practice. This format fits perfectly into my day: I read and level up my comprehension without extra prep."</p>
+                    <div class="testimonial-author">
+                        <span class="fi fi-fr"></span>
+                        <div class="author-info">
+                            <span class="author-name">Nicolas Petit</span>
+                            <span class="author-level">intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="testimonials-btn testimonials-btn-prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="testimonials-btn testimonials-btn-next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Polyglot Secrets -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">5 secrets</span>
+                <h2>Polyglot secrets</h2>
+                <p>Polyglot principles — built into LingoSeven.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>01 — Read extensively</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Principle:</strong> Parallel translation in speed-reading mode allows you to read extensively — that is, very quickly. Extensive reading is the fastest way to learn a language!</p>
+                        <p><strong>How LingoSeven helps:</strong> LingoSeven has a built-in parallel reading mode: you see the text and translation side by side, so you can "devour" pages without reaching for a dictionary. Turbo reading mode lets you read even faster by highlighting words if you lose your place.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>02 — Review words at the right moment</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Principle:</strong> Spaced repetition helps you memorize words effectively: you review a word right when you're about to forget it.</p>
+                        <p><strong>How LingoSeven helps:</strong> The app's built-in spaced repetition system tracks the words you've added to your vocabulary and brings them back for review at optimal intervals. You don't need to schedule study sessions — the algorithm handles it for you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>03 — Learn only the words you need</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Principle:</strong> Polyglots don't waste time memorizing "every word in order" — they focus on the most common and useful expressions.</p>
+                        <p><strong>How LingoSeven helps:</strong> The app offers expert-curated collections — academic English, business, medicine, travel, and more — plus lists of the most frequent words (including the ~3,000 most essential). The idea is simple: learn the minimum that gives you the maximum — so you can understand written and spoken language faster and speak more easily.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>04 — Learn with genuine interest</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Principle:</strong> Boring textbooks kill motivation. Polyglots choose texts they enjoy: favorite books, articles, scripts. Interest sustains consistency and helps your brain absorb material better.</p>
+                        <p><strong>How LingoSeven helps:</strong> You choose engaging texts — from classics to articles and topic summaries. You can read or listen, save words you need, review them with the spaced repetition algorithm, and practice pronunciation. All in short sessions (7–15 minutes) with no fluff — just value.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>05 — Learn in resonance</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Principle:</strong> The fastest progress happens when you develop multiple skills at once. Reading, listening, vocabulary, and pronunciation reinforce each other — creating a "resonance" effect: overall results grow faster than the sum of individual exercises.</p>
+                        <p><strong>How LingoSeven helps:</strong> LingoSeven brings this approach together into one "success formula": you read and listen to books/articles/summaries, pick up words as you go, then learn them through exercises and spaced repetition with pronunciation practice. The result: one process that simultaneously develops reading, listening comprehension, vocabulary, and speech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Want to learn a language quickly and effectively?</h2>
+                <p>Download LingoSeven and start learning a language today</p>
+                <div class="download-buttons">
+                    <a href="https://apps.apple.com/app/id6471030440" class="btn btn-primary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <div class="btn-text">
+                            <span class="btn-small">Download on</span>
+                            <span class="btn-big">App Store</span>
+                        </div>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="btn btn-outline btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-2.11 1.24-2.5-2.5 2.5-2.5 2.11 1.38M6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/>
+                        </svg>
+                        <div class="btn-text">
+                            <span class="btn-small">Get it on</span>
+                            <span class="btn-big">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-simple">
+                <a href="#" class="logo">
+                    <img src="logo.svg" alt="Logo" class="logo-img">
+                </a>
+                <div class="footer-links-inline">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="mailto:support@lingoseven.com">Contact</a>
+                </div>
+                <p class="footer-copy">&copy; 2024 LingoSeven. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating language button -->
+    <div class="lang-float-btn" id="langFloatBtn">
+        <span class="fi fi-gb" id="langFlag"></span>
+    </div>
+    <div class="lang-float-menu" id="langFloatMenu">
+        <div class="lang-float-menu-inner" id="langMenuInner">
+            <!-- Languages added via JS -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
