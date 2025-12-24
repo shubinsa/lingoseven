@@ -528,19 +528,27 @@ if (slider) {
 
     // Свайп на мобильных
     let startX = 0;
+    let currentX = 0;
     let isDragging = false;
+    let startTranslate = 0;
 
     track.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
-    });
+        startTranslate = currentIndex * slideWidth;
+        track.style.transition = 'none';
+    }, { passive: true });
 
-    track.addEventListener('touchmove', () => {
+    track.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
-    });
+        currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+        track.style.transform = `translateX(-${startTranslate + diff}px)`;
+    }, { passive: true });
 
     track.addEventListener('touchend', (e) => {
         if (!isDragging) return;
+        track.style.transition = 'transform 0.3s ease';
         const endX = e.changedTouches[0].clientX;
         const diff = startX - endX;
 
@@ -550,6 +558,8 @@ if (slider) {
             } else {
                 prevSlide();
             }
+        } else {
+            goToSlide(currentIndex);
         }
         isDragging = false;
     });
