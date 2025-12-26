@@ -794,6 +794,43 @@ h3 {
 
 .section-header h2 {
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.animation-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8em;
+    min-width: 1.8em;
+    background: #0a0a0a;
+    border-radius: 12px;
+}
+
+.title-animation {
+    height: 100%;
+    width: auto;
+    border-radius: 12px;
+    transition: opacity 0.3s ease;
+}
+
+.title-emoji {
+    position: absolute;
+    font-size: 1.4em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.title-emoji.visible {
+    opacity: 1;
+}
+
+.title-animation.hidden {
+    opacity: 0;
 }
 
 .section-tag {
@@ -1255,6 +1292,43 @@ h3 {
     margin: 0;
 }
 
+.step-animation {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--gradient);
+}
+
+.step-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.step-video.hidden {
+    opacity: 0;
+}
+
+.step-number-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2332;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.step-number-overlay.visible {
+    opacity: 1;
+}
+
 .step-content {
     flex: 1;
 }
@@ -1694,6 +1768,7 @@ h3 {
 .download-buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 16px;
     flex-wrap: wrap;
 }
@@ -1844,6 +1919,41 @@ h3 {
 .footer-copy {
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.85rem;
+}
+
+.download-animation {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    background: #000;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.download-video {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.download-emoji {
+    position: absolute;
+    font-size: 2.5em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.download-emoji.visible {
+    opacity: 1;
+}
+
+.download-video.hidden {
+    opacity: 0;
 }
 
 @media (max-width: 600px) {

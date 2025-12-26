@@ -18,6 +18,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
     <!-- Google Translate -->
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17781135403"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Google Ads
+      gtag('config', 'AW-17781135403');
+      // Google Analytics
+      gtag('config', 'G-DCNBF6FH70');
+    </script>
+    <!-- Event snippet for Purchase (1) conversion page -->
+    <script>
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17781135403/iWDBCLqphNAbEKuw2p5C',
+          'value': 1.0,
+          'currency': 'USD',
+          'transaction_id': ''
+      });
+    </script>
 </head>
 <body>
     <!-- SEO Anchors -->
@@ -145,7 +166,10 @@
             </div>
             <div class="steps-detailed">
                 <div class="step-detailed">
-                    <div class="step-number">1</div>
+                    <div class="step-animation">
+                        <video src="Read.mp4" class="step-video" autoplay muted playsinline id="readVideo"></video>
+                        <span class="step-number-overlay" id="readNumber">1</span>
+                    </div>
                     <div class="step-content">
                         <h3>Read — without a dictionary</h3>
                         <p class="step-description"><strong>Parallel reading</strong> in speed-reading mode lets you breeze through even challenging texts.</p>
@@ -718,6 +742,10 @@
                             <span class="btn-big">Google Play</span>
                         </div>
                     </a>
+                    <div class="download-animation">
+                        <video src="animation.mp4" class="download-video" autoplay muted playsinline id="downloadVideo"></video>
+                        <span class="download-emoji" id="downloadEmoji">👍</span>
+                    </div>
                 </div>
             </div>
         </div>

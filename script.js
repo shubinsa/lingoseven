@@ -872,3 +872,27 @@ function initFlagsScaleEffect() {
 }
 
 document.addEventListener('DOMContentLoaded', initFlagsScaleEffect);
+
+// ========== Анимация Download с эмодзи ==========
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadVideo = document.getElementById('downloadVideo');
+    const downloadEmoji = document.getElementById('downloadEmoji');
+
+    if (downloadVideo && downloadEmoji) {
+        downloadVideo.addEventListener('ended', function() {
+            downloadVideo.classList.add('hidden');
+            downloadEmoji.classList.add('visible');
+        });
+    }
+
+    // Анимация Read с номером
+    const readVideo = document.getElementById('readVideo');
+    const readNumber = document.getElementById('readNumber');
+
+    if (readVideo && readNumber) {
+        readVideo.addEventListener('ended', function() {
+            readVideo.classList.add('hidden');
+            readNumber.classList.add('visible');
+        });
+    }
+});
